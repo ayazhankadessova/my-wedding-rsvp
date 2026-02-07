@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import flowerDecor from "@/assets/flower-.png";
 
 const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "";
-const RSVP_CODE = import.meta.env.RSVP_CODE || "";
+const VITE_RSVP_CODE = import.meta.env.VITE_RSVP_CODE || "";
 
 const RSVPSection = () => {
   const ref = useRef(null);
@@ -32,7 +32,7 @@ const RSVPSection = () => {
 
     setCodeError(false);
 
-    if (formData.code.toUpperCase() !== RSVP_CODE.toUpperCase()) {
+    if (formData.code.toUpperCase() !== VITE_RSVP_CODE.toUpperCase()) {
       setCodeError(true);
       return;
     }

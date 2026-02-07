@@ -53,6 +53,8 @@ const GiftRegistrySection = () => {
             <p className="text-sm leading-relaxed">
               However, if you wish to honor us with a gift, we've created a small registry
               with some items we'd love for our new home together.
+
+              Alternatively, if you prefer to support us as we begin our married life, a contribution to our future would mean so much. 
             </p>
 
             <motion.a

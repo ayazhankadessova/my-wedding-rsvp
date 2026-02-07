@@ -1,69 +1,95 @@
-Minimalistic wedding website for Ayazhan & Shokan with elegant florals and elephant motifs. The inspiration shows a romantic cream/gold palette with botanical illustrations and elegant script typography.
+# Wedding Website
 
-**Design approach:**
-- Warm ivory/cream base with sage green and dusty rose accents
-- Elegant script font (Cormorant Garamond) for headings
-- Clean serif for body text
-- Botanical line-art florals and elephant illustrations
-- Smooth scroll animations
+A minimalistic wedding website I built for my own wedding celebration. Feel free to fork it and adapt it for yours!
 
-**Sections:**
-1. Hero with names & date
-2. Venue & Time details
-3. Dress Code
-4. Schedule (Games, Dancing)
-5. Accommodation info
-6. Gift Registry
-7. Contact
+## Tech Stack
 
-Let me build this for you:
+- **Vite** + **React** + **TypeScript**
+- **Tailwind CSS** for styling
+- **shadcn/ui** for UI components
+- **Framer Motion** for scroll animations
+- **Google Sheets** as a backend for RSVP responses (via Google Apps Script)
 
-\\n\\n  \\n    \\n    \\n    Lovable Generated Project\\n    \\n    \\n  \\n  \\n    \\n    \", \"replace\": \"\\n\\n  \\n    \\n    \\n    Ayazhan & Shokan - Wedding\\n    \\n    \\n    \\n    \\n    \\n  \\n  \\n    \\n    \"}">
+## Sections
 
-Now I have the files. Let me create the design system and all components:
-\\n\\n  \\n    \\n    \\n    Ayazhan & Shokan - Wedding\\n    \\n    \\n\\n    \\n    \\n    \\n\\n    \\n    \\n    \\n    \\n    \\n  \\n\\n  \\n    \\n    \\n  \\n\\n\"}">
+- **Hero** — Event title, date, and location
+- **Schedule** — Timeline of the day's events
+- **Accommodation** — Lodging info for guests
+- **Gift Registry** — Registry link (placeholder)
+- **RSVP** — Form with invitation code protection, connected to Google Sheets
+- **FAQ** — Venue, time, dress code details with a map link
 
-Now let me generate the decorative images (florals and elephants) and create all the components:
+## Getting Started
 
-Beautiful images! Now let me create all the components for the wedding website:
- {\\n  return (\\n    \\n      {/* Decorative florals - top left */}\\n      \\n      \\n      {/* Decorative florals - top right (flipped) */}\\n      \\n\\n      {/* Elephant decorations - sides */}\\n      \\n      \\n      \\n\\n      {/* Main content */}\\n      \\n        \\n          You're Invited to the Wedding of\\n        \\n\\n        \\n          Ayazhan\\n        \\n        \\n        \\n          &\\n        \\n        \\n        \\n          Shokan\\n        \\n\\n        \\n\\n        \\n          Save the Date\\n        \\n\\n        \\n          View Details\\n        \\n      \\n\\n      {/* Decorative florals - bottom */}\\n      \\n      \\n      \\n    \\n  );\\n};\\n\\nexport default HeroSection;\\n\"}">
+```bash
+# Install dependencies
+npm install
 
- {\\n  const ref = useRef(null);\\n  const isInView = useInView(ref, { once: true, margin: \\\"-100px\\\" });\\n\\n  const details = [\\n    {\\n      title: \\\"The Venue\\\",\\n      description: \\\"Venue details will be shared soon. Stay tuned for the exact location and directions.\\\",\\n      icon: \\\"📍\\\",\\n    },\\n    {\\n      title: \\\"The Time\\\",\\n      description: \\\"The celebration time will be announced. Please check back for updates.\\\",\\n      icon: \\\"🕐\\\",\\n    },\\n    {\\n      title: \\\"Dress Code\\\",\\n      description: \\\"We'd love to see you in pastel colors! Anything soft and beautiful works — but ultimately, wear whatever makes you feel wonderful.\\\",\\n      icon: \\\"👗\\\",\\n    },\\n  ];\\n\\n  return (\\n    \\n      \\n        {/* Section title */}\\n        \\n          \\n            The Celebration\\n          \\n          \\n        \\n\\n        {/* Details cards */}\\n        \\n          {details.map((detail, index) => (\\n            \\n              \\n              \\n                {detail.title}\\n              \\n              \\n                {detail.description}\\n              \\n            \\n          ))}\\n        \\n      \\n    \\n  );\\n};\\n\\nexport default DetailsSection;\\n\"}">
+# Start dev server
+npm run dev
 
- {\\n  const ref = useRef(null);\\n  const isInView = useInView(ref, { once: true, margin: \\\"-100px\\\" });\\n\\n  const events = [\\n    { time: \\\"TBA\\\", event: \\\"Arrival & Welcome\\\" },\\n    { time: \\\"TBA\\\", event: \\\"Ceremony\\\" },\\n    { time: \\\"TBA\\\", event: \\\"Games & Fun\\\" },\\n    { time: \\\"TBA\\\", event: \\\"Dancing & Celebration\\\" },\\n    { time: \\\"TBA\\\", event: \\\"Dinner\\\" },\\n  ];\\n\\n  return (\\n    \\n      \\n        \\n          {/* Photo */}\\n          \\n            \\n              \\n            \\n          \\n\\n          {/* Schedule */}\\n          \\n            \\n              Schedule of Events\\n            \\n            \\n              The Day's Timeline\\n            \\n\\n            \\n              {events.map((item, index) => (\\n                \\n                  \\n                    {item.time}\\n                  \\n                  \\n                    {item.event}\\n                  \\n                \\n              ))}\\n            \\n          \\n        \\n      \\n    \\n  );\\n};\\n\\nexport default ScheduleSection;\\n\"}">
+# Build for production
+npm run build
+```
 
- {\\n  const ref = useRef(null);\\n  const isInView = useInView(ref, { once: true, margin: \\\"-100px\\\" });\\n\\n  return (\\n    \\n      {/* Decorative elements */}\\n      \\n\\n      \\n        \\n          \\n            Accommodation\\n          \\n          \\n          \\n          \\n            \\n              We're planning to arrange special accommodation for our guests!\\n            \\n            \\n            \\n              \\n                For Our Female Guests\\n              \\n              \\n                We're looking into renting a lovely place where our female friends can stay together. \\n                It'll be like a little gathering of its own!\\n              \\n            \\n\\n            \\n              \\n                Additional Apartments\\n              \\n              \\n                We may also have one or two apartments available for other guests. \\n                More details will follow as we finalize the arrangements.\\n              \\n            \\n\\n            \\n              Stay tuned — we'll share all the specifics soon!\\n            \\n          \\n        \\n      \\n    \\n  );\\n};\\n\\nexport default AccommodationSection;\\n\"}">
+## Environment Variables
 
- {\\n  const ref = useRef(null);\\n  const isInView = useInView(ref, { once: true, margin: \\\"-100px\\\" });\\n\\n  return (\\n    \\n      {/* Decorative florals */}\\n      \\n      \\n\\n      \\n        \\n          \\n            \\n              Gift Registry\\n            \\n            \\n          \\n\\n          \\n            \\n              Your presence is truly the greatest gift we could ask for.\\n            \\n            \\n            \\n              However, if you wish to honor us with a gift, we've created a small registry \\n              with some items we'd love for our new home together.\\n            \\n\\n             {\\n                e.preventDefault();\\n                alert(\\\"Registry link will be added here!\\\");\\n              }}\\n            >\\n              View Our Registry\\n            \\n\\n            \\n              The registry link will be added soon\\n            \\n          \\n        \\n      \\n    \\n  );\\n};\\n\\nexport default GiftRegistrySection;\\n\"}">
+Create a `.env` file in the root:
 
- {\\n  const ref = useRef(null);\\n  const isInView = useInView(ref, { once: true, margin: \\\"-100px\\\" });\\n\\n  const faqs = [\\n    {\\n      question: \\\"What should I wear?\\\",\\n      answer: \\\"We'd love to see you in pastel colors — think soft pinks, lavenders, mint greens, or baby blues. But honestly, wear whatever makes you feel comfortable and beautiful!\\\",\\n    },\\n    {\\n      question: \\\"Where will the wedding be?\\\",\\n      answer: \\\"The venue location will be shared soon. We'll send you all the details including directions and parking information as the date approaches.\\\",\\n    },\\n    {\\n      question: \\\"What time should I arrive?\\\",\\n      answer: \\\"Please arrive at least 30 minutes before the ceremony starts so you have time to settle in. Exact times will be announced soon!\\\",\\n    },\\n  ];\\n\\n  return (\\n    \\n      \\n        \\n          \\n            Questions & Answers\\n          \\n          \\n        \\n\\n        \\n          {faqs.map((faq, index) => (\\n            \\n              \\n              \\n                {faq.question}\\n              \\n              \\n                {faq.answer}\\n              \\n            \\n          ))}\\n        \\n      \\n    \\n  );\\n};\\n\\nexport default FAQSection;\\n\"}">
+```
+VITE_GOOGLE_SCRIPT_URL=your_google_apps_script_url
+VITE_RSVP_CODE=your_invitation_code
+```
 
- {\\n  const ref = useRef(null);\\n  const isInView = useInView(ref, { once: true, margin: \\\"-50px\\\" });\\n\\n  return (\\n    \\n      {/* Decorative elements */}\\n      \\n      \\n\\n      \\n        \\n          \\n            We Can't Wait to See You!\\n          \\n          \\n        \\n\\n        \\n          \\n        \\n\\n        \\n          \\n            Ayazhan & Shokan\\n          \\n          \\n            With love and excitement\\n          \\n        \\n\\n        {/* Bottom florals */}\\n        \\n      \\n    \\n  );\\n};\\n\\nexport default FooterSection;\\n\"}">
+- `VITE_GOOGLE_SCRIPT_URL` — The deployed Google Apps Script web app URL that receives RSVP form submissions and writes them to a Google Sheet.
+- `VITE_RSVP_CODE` — A code guests must enter to submit the RSVP form (prevents random submissions).
 
- {\\n  const [isScrolled, setIsScrolled] = useState(false);\\n  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);\\n\\n  useEffect(() => {\\n    const handleScroll = () => {\\n      setIsScrolled(window.scrollY > 50);\\n    };\\n    window.addEventListener(\\\"scroll\\\", handleScroll);\\n    return () => window.removeEventListener(\\\"scroll\\\", handleScroll);\\n  }, []);\\n\\n  const navLinks = [\\n    { label: \\\"Details\\\", href: \\\"#details\\\" },\\n    { label: \\\"Schedule\\\", href: \\\"#schedule\\\" },\\n    { label: \\\"Stay\\\", href: \\\"#accommodation\\\" },\\n    { label: \\\"Registry\\\", href: \\\"#registry\\\" },\\n    { label: \\\"FAQ\\\", href: \\\"#faq\\\" },\\n  ];\\n\\n  return (\\n    <>\\n      \\n        \\n          \\n            {/* Logo */}\\n            \\n              A & S\\n            \\n\\n            {/* Desktop navigation */}\\n            \\n              {navLinks.map((link) => (\\n                \\n                  {link.label}\\n                \\n              ))}\\n            \\n\\n            {/* Mobile menu button */}\\n             setIsMobileMenuOpen(!isMobileMenuOpen)}\\n              aria-label=\\\"Toggle menu\\\"\\n            >\\n              \\n                \\n                \\n                \\n              \\n            \\n          \\n        \\n      \\n\\n      {/* Mobile menu overlay */}\\n      \\n        {isMobileMenuOpen && (\\n          \\n            \\n              {navLinks.map((link, index) => (\\n                 setIsMobileMenuOpen(false)}\\n                  initial={{ opacity: 0, y: 20 }}\\n                  animate={{ opacity: 1, y: 0 }}\\n                  exit={{ opacity: 0, y: 20 }}\\n                  transition={{ duration: 0.3, delay: index * 0.1 }}\\n                >\\n                  {link.label}\\n                \\n              ))}\\n            \\n          \\n        )}\\n      \\n    \\n  );\\n};\\n\\nexport default Navigation;\\n\"}">
+## Google Sheets Setup
 
-Now let me update the Index page to bring it all together:
- {\\n  return (\\n    \\n      \\n      \\n      \\n      \\n        \\n      \\n      \\n        \\n      \\n      \\n        \\n      \\n      \\n        \\n      \\n      \\n    \\n  );\\n};\\n\\nexport default Index;\\n\", \"file_path\": \"src/pages/Index.tsx\"}">
+1. Create a Google Sheet with columns: `Timestamp`, `Name`, `Email`, `Attending`, `Guests`, `Message`
+2. Go to **Extensions > Apps Script** and add:
 
- {\\n  return (\\n    \\n      \\n      \\n      \\n      \\n        \\n      \\n      \\n        \\n      \\n      \\n        \\n      \\n      \\n        \\n      \\n      \\n    \\n  );\\n};\\n\\nexport default Index;\\n\", \"file_path\": \"src/pages/Index.tsx\"}">
+```javascript
+function doPost(e) {
+  var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  var data = JSON.parse(e.postData.contents);
+  sheet.appendRow([
+    data.timestamp,
+    data.name,
+    data.email,
+    data.attending,
+    data.guests,
+    data.message
+  ]);
+  return ContentService.createTextOutput(
+    JSON.stringify({ status: "success" })
+  ).setMimeType(ContentService.MimeType.JSON);
+}
+```
 
-I've created a beautiful minimalistic wedding website for Ayazhan & Shokan! 🎊
+3. Deploy as a **Web app** (access: Anyone) and copy the URL into your `.env`.
 
-**Features included:**
-- **Hero** – Elegant script typography with your names, floral & elephant decorations
-- **The Celebration** – Venue, time, and dress code (pastel colors encouraged)
-- **Schedule** – Timeline for games, dancing, and celebration (times TBA)
-- **Accommodation** – Info about the place for female friends + potential apartments
-- **Gift Registry** – Placeholder button for your registry link
-- **FAQ** – Common questions about dress code, venue, arrival time
-- **Footer** – Beautiful closing with decorative elements
+## Deploying to Vercel
 
-**Design:** Warm ivory/gold palette, elegant Cormorant Garamond script font, botanical florals and ornate elephants throughout, smooth scroll animations with Framer Motion.
+1. Import the repo on [vercel.com](https://vercel.com)
+2. Framework preset: **Vite**
+3. Add both environment variables (`VITE_GOOGLE_SCRIPT_URL`, `VITE_RSVP_CODE`)
+4. Deploy
 
-You can easily update the venue details, times, and registry link when ready!
+## Customizing for Your Wedding
 
-Test the full website
-Add wedding details
-Add RSVP functionality
-Add your couple photo
-Update registry link
+- Update names, date, and location in `src/components/wedding/HeroSection.tsx`
+- Update schedule times in `src/components/wedding/ScheduleSection.tsx`
+- Update FAQ content in `src/components/wedding/FAQSection.tsx`
+- Replace images in `src/assets/`
+- Change the color palette in `src/index.css` (CSS custom properties)
+- Change fonts in `tailwind.config.ts`
+
+## Design
+
+- Warm ivory/cream and gold color palette
+- Cormorant Garamond script font for headings
+- Raleway for body text
+- Botanical line-art florals throughout
+- Alternating cream/gold section backgrounds
+- Smooth scroll-triggered animations

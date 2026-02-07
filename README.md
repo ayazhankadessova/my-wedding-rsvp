@@ -1,8 +1,10 @@
-# Wedding Website
+# 💍 Wedding Website
 
-A minimalistic wedding website I built for my own wedding celebration. Feel free to fork it and adapt it for yours!
+An elegant, minimalistic wedding website with RSVP functionality, built with React and connected to Google Sheets.
 
-## Tech Stack
+I built this for my own wedding celebration — feel free to fork it and adapt it for yours! 🎉
+
+## 🛠️ Tech Stack
 
 - **Vite** + **React** + **TypeScript**
 - **Tailwind CSS** for styling
@@ -10,16 +12,16 @@ A minimalistic wedding website I built for my own wedding celebration. Feel free
 - **Framer Motion** for scroll animations
 - **Google Sheets** as a backend for RSVP responses (via Google Apps Script)
 
-## Sections
+## 📋 Sections
 
-- **Hero** — Event title, date, and location
-- **Schedule** — Timeline of the day's events
-- **Accommodation** — Lodging info for guests
-- **Gift Registry** — Registry link (placeholder)
-- **RSVP** — Form with invitation code protection, connected to Google Sheets
-- **FAQ** — Venue, time, dress code details with a map link
+- 🏠 **Hero** — Event title, date, and location
+- 🕐 **Schedule** — Timeline of the day's events
+- 🏨 **Accommodation** — Lodging info for guests
+- 🎁 **Gift Registry** — Registry link
+- 💌 **RSVP** — Form with invitation code protection, connected to Google Sheets
+- ❓ **FAQ** — Venue, time, dress code details with a map link
 
-## Getting Started
+## 🚀 Getting Started
 
 ```bash
 # Install dependencies
@@ -32,7 +34,7 @@ npm run dev
 npm run build
 ```
 
-## Environment Variables
+## 🔐 Environment Variables
 
 Create a `.env` file in the root:
 
@@ -44,7 +46,7 @@ VITE_RSVP_CODE=your_invitation_code
 - `VITE_GOOGLE_SCRIPT_URL` — The deployed Google Apps Script web app URL that receives RSVP form submissions and writes them to a Google Sheet.
 - `VITE_RSVP_CODE` — A code guests must enter to submit the RSVP form (prevents random submissions).
 
-## Google Sheets Setup
+## 📊 Google Sheets Setup
 
 1. Create a Google Sheet with columns: `Timestamp`, `Name`, `Email`, `Attending`, `Guests`, `Message`
 2. Go to **Extensions > Apps Script** and add:
@@ -69,14 +71,14 @@ function doPost(e) {
 
 3. Deploy as a **Web app** (access: Anyone) and copy the URL into your `.env`.
 
-## Deploying to Vercel
+## ▲ Deploying to Vercel
 
 1. Import the repo on [vercel.com](https://vercel.com)
 2. Framework preset: **Vite**
 3. Add both environment variables (`VITE_GOOGLE_SCRIPT_URL`, `VITE_RSVP_CODE`)
 4. Deploy
 
-## Customizing for Your Wedding
+## ✏️ Customizing for Your Wedding
 
 - Update names, date, and location in `src/components/wedding/HeroSection.tsx`
 - Update schedule times in `src/components/wedding/ScheduleSection.tsx`
@@ -85,7 +87,7 @@ function doPost(e) {
 - Change the color palette in `src/index.css` (CSS custom properties)
 - Change fonts in `tailwind.config.ts`
 
-## Design
+## 🎨 Design
 
 - Warm ivory/cream and gold color palette
 - Cormorant Garamond script font for headings

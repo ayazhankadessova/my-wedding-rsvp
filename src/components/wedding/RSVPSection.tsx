@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import flowerDecor from "@/assets/flower-.png";
 
 const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "";
+const RSVP_CODE = import.meta.env.RSVP_CODE || "";
 
 const RSVPSection = () => {
   const ref = useRef(null);
@@ -15,8 +16,10 @@ const RSVPSection = () => {
     attending: "",
     guests: "1",
     message: "",
+    code: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [codeError, setCodeError] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -26,6 +29,13 @@ const RSVPSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    setCodeError(false);
+
+    if (formData.code.toUpperCase() !== RSVP_CODE.toUpperCase()) {
+      setCodeError(true);
+      return;
+    }
 
     if (!GOOGLE_SCRIPT_URL) {
       setStatus("error");
@@ -45,7 +55,7 @@ const RSVPSection = () => {
         }),
       });
       setStatus("success");
-      setFormData({ name: "", email: "", attending: "", guests: "1", message: "" });
+      setFormData({ name: "", email: "", attending: "", guests: "1", message: "", code: "" });
     } catch {
       setStatus("error");
     }
@@ -232,6 +242,35 @@ const RSVPSection = () => {
                   placeholder="Dietary restrictions, song requests, or a sweet note..."
                   className="w-full px-4 py-3 bg-transparent border border-brown/20 font-body text-brown text-sm placeholder:text-brown-light/50 focus:outline-none focus:border-gold transition-colors resize-none"
                 />
+              </div>
+
+              {/* Invitation Code */}
+              <div>
+                <label
+                  htmlFor="rsvp-code"
+                  className="block font-script text-brown text-lg mb-2"
+                >
+                  Invitation Code
+                </label>
+                <input
+                  id="rsvp-code"
+                  name="code"
+                  type="text"
+                  required
+                  value={formData.code}
+                  onChange={(e) => {
+                    setCodeError(false);
+                    handleChange(e);
+                  }}
+                  placeholder="Enter your 6-character code"
+                  className="w-full px-4 py-3 bg-transparent border border-brown/20 font-body text-brown text-sm placeholder:text-brown-light/50 focus:outline-none focus:border-gold transition-colors uppercase tracking-widest"
+                  maxLength={6}
+                />
+                {codeError && (
+                  <p className="font-body text-sm text-red-600 mt-2">
+                    Invalid invitation code. Please check and try again.
+                  </p>
+                )}
               </div>
 
               {/* Error message */}

@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import elephantDecoration from "@/assets/elephant-decoration.png";
+import flowerDecor from "@/assets/flower-.png";
 
 const AccommodationSection = () => {
   const ref = useRef(null);
@@ -11,7 +11,7 @@ const AccommodationSection = () => {
     <section className="section-cream py-24 md:py-32 relative overflow-hidden">
       {/* Decorative elements */}
       <motion.img
-        src={elephantDecoration}
+        src={flowerDecor}
         alt=""
         className="absolute top-10 right-10 w-24 md:w-32 opacity-30"
         initial={{ opacity: 0 }}
@@ -50,7 +50,7 @@ const AccommodationSection = () => {
                 For Our Female Guests
               </h3>
               <p className="text-sm">
-                We're looking into renting a lovely place where our female friends can stay together. 
+                We're looking into renting a place where our female friends can stay together. 
                 It'll be like a little gathering of its own!
               </p>
             </motion.div>
@@ -65,7 +65,7 @@ const AccommodationSection = () => {
                 Additional Apartments
               </h3>
               <p className="text-sm">
-                We may also have one or two apartments available for other guests. 
+                We may also have one or two apartments available for other guests (depending on availability). 
                 More details will follow as we finalize the arrangements.
               </p>
             </motion.div>

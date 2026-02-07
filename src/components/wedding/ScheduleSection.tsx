@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import couplePhoto from "@/assets/couple-photo.jpg";
+import couplePhoto from "@/assets/faq-1.png";
 
 const ScheduleSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const events = [
-    { time: "TBA", event: "Arrival & Welcome" },
-    { time: "TBA", event: "Ceremony" },
-    { time: "TBA", event: "Games & Fun" },
-    { time: "TBA", event: "Dancing & Celebration" },
-    { time: "TBA", event: "Dinner" },
+    { time: "16:00", event: "Arrival & Welcome" },
+    { time: "16:00", event: "Ceremony" },
+    { time: "18:30", event: "Dinner" },
+    { time: "20:00", event: "Celebration" },
+    { time: "23:00", event: "End" },
   ];
 
   return (
     <section className="section-gold py-24 md:py-32 relative overflow-hidden">
       <div className="container mx-auto px-4" ref={ref}>
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-0 lg:gap-0 items-center max-w-6xl mx-auto">
           {/* Photo */}
           <motion.div
             className="order-2 lg:order-1"

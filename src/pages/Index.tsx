@@ -1,9 +1,9 @@
 import Navigation from "@/components/wedding/Navigation";
 import HeroSection from "@/components/wedding/HeroSection";
-import DetailsSection from "@/components/wedding/DetailsSection";
 import ScheduleSection from "@/components/wedding/ScheduleSection";
 import AccommodationSection from "@/components/wedding/AccommodationSection";
 import GiftRegistrySection from "@/components/wedding/GiftRegistrySection";
+import RSVPSection from "@/components/wedding/RSVPSection";
 import FAQSection from "@/components/wedding/FAQSection";
 import FooterSection from "@/components/wedding/FooterSection";
 
@@ -12,7 +12,6 @@ const Index = () => {
     <div className="min-h-screen">
       <Navigation />
       <HeroSection />
-      <DetailsSection />
       <section id="schedule">
         <ScheduleSection />
       </section>
@@ -22,9 +21,10 @@ const Index = () => {
       <section id="registry">
         <GiftRegistrySection />
       </section>
-      <section id="faq">
-        <FAQSection />
+      <section id="rsvp">
+        <RSVPSection />
       </section>
+      <FAQSection />
       <FooterSection />
     </div>
   );

@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
-import floralCorner from "@/assets/floral-corner-1.png";
-import elephantDecoration from "@/assets/elephant-decoration.png";
+import floralCorner from "@/assets/flower-laying-diagonal.png";
+import leftBottomHome from "@/assets/left-bottom-home.png";
+import rightBottomFlower from "@/assets/right-bottom-flower.png";
 
 const HeroSection = () => {
   return (
-    <section className="section-cream min-h-screen relative overflow-hidden flex items-center justify-center">
+    <section className="section-cream py-24 md:py-32 relative overflow-hidden flex items-center justify-center">
       {/* Decorative florals - top left */}
       <motion.img
         src={floralCorner}
@@ -25,20 +26,20 @@ const HeroSection = () => {
         transition={{ duration: 1, delay: 0.5 }}
       />
 
-      {/* Elephant decorations - sides */}
+      {/* Flower decorations - sides */}
       <motion.img
-        src={elephantDecoration}
+        src={leftBottomHome}
         alt=""
         className="absolute bottom-20 left-4 md:left-10 w-24 md:w-32 lg:w-40 opacity-60"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 0.6, y: 0 }}
         transition={{ duration: 1, delay: 0.8 }}
       />
-      
+
       <motion.img
-        src={elephantDecoration}
+        src={rightBottomFlower}
         alt=""
-        className="absolute bottom-20 right-4 md:right-10 w-24 md:w-32 lg:w-40 opacity-60 -scale-x-100"
+        className="absolute bottom-20 right-4 md:right-10 w-24 md:w-32 lg:w-40 opacity-60"
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 0.6, y: 0 }}
         transition={{ duration: 1, delay: 1 }}
@@ -52,34 +53,16 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          You're Invited to the Wedding of
+          You're Invited to
         </motion.p>
 
         <motion.h1
-          className="font-script text-brown text-6xl md:text-8xl lg:text-9xl font-medium leading-tight"
+          className="font-script text-brown text-4xl md:text-6xl lg:text-7xl font-medium leading-tight"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          Ayazhan
-        </motion.h1>
-        
-        <motion.p
-          className="font-script text-gold text-4xl md:text-5xl my-2"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          &
-        </motion.p>
-        
-        <motion.h1
-          className="font-script text-brown text-6xl md:text-8xl lg:text-9xl font-medium leading-tight"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.8 }}
-        >
-          Shokan
+          Ayazhan's Qyz Uzatu
         </motion.h1>
 
         <motion.div
@@ -90,12 +73,21 @@ const HeroSection = () => {
         />
 
         <motion.p
-          className="font-body text-brown-light tracking-widest text-lg md:text-xl"
+          className="font-script text-brown text-2xl md:text-3xl"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 1.4 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
         >
-          Save the Date
+          August 7, 2026
+        </motion.p>
+
+        <motion.p
+          className="font-body text-brown-light tracking-widest text-sm md:text-base mt-2"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 1.0 }}
+        >
+          Oskemen, Kazakhstan
         </motion.p>
 
         <motion.a

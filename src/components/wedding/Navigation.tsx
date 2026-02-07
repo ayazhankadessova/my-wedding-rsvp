@@ -14,11 +14,11 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { label: "Details", href: "#details" },
     { label: "Schedule", href: "#schedule" },
     { label: "Stay", href: "#accommodation" },
     { label: "Registry", href: "#registry" },
-    { label: "FAQ", href: "#faq" },
+    { label: "RSVP", href: "#rsvp" },
+    { label: "FAQ", href: "#details" },
   ];
 
   return (

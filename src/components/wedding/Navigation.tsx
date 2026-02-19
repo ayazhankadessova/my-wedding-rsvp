@@ -14,11 +14,11 @@ const Navigation = () => {
   }, []);
 
   const navLinks = [
-    { label: "Schedule", href: "#schedule" },
-    { label: "Stay", href: "#accommodation" },
-    { label: "Registry", href: "#registry" },
-    { label: "RSVP", href: "#rsvp" },
-    { label: "FAQ", href: "#details" },
+    { label: "Schedule", href: "/#schedule" },
+    { label: "Stay", href: "/#accommodation" },
+    { label: "Registry", href: "/#registry" },
+    { label: "RSVP", href: "/#rsvp" },
+    { label: "FAQ", href: "/#details" },
   ];
 
   return (
@@ -36,7 +36,7 @@ const Navigation = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href="#" className="font-script text-brown text-2xl">
+            <a href="/" className="font-script text-brown text-2xl">
               A & S
             </a>
 

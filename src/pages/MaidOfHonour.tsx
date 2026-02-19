@@ -130,9 +130,9 @@ const MaidOfHonour = () => {
                 animate={isMessageInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                You've been there through every version of me — the tearful late-night calls,
-                the laughter that made no sense to anyone else, and every quiet moment in between.
-                You've supported me, believed in me, and loved me without condition.
+                Through all the late-night talks, the silly laughter only we understand,
+                and the quiet moments that didn't need any words — you've been my person.
+                Thank you for always showing up, exactly as you are.
               </motion.p>
 
               <motion.p
@@ -140,7 +140,7 @@ const MaidOfHonour = () => {
                 animate={isMessageInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                Now, on the most important day of my life, I want you by my side.
+                I can't imagine this day without you standing next to me.
               </motion.p>
 
               <motion.div
@@ -153,8 +153,8 @@ const MaidOfHonour = () => {
                   Your Journey, Covered
                 </h3>
                 <p className="text-sm">
-                  I'll take care of your round-trip flight from Astana to Oskemen and back.
-                  All you need to do is say yes.
+                  Your round-trip flight from Astana to Oskemen and back is on me.
+                  Just pack your favourite outfit and leave the rest to me.
                 </p>
               </motion.div>
 
@@ -168,8 +168,8 @@ const MaidOfHonour = () => {
                   A Place to Rest
                 </h3>
                 <p className="text-sm">
-                  Your hotel stay in Oskemen for the duration of the celebration will be
-                  fully arranged and covered. Just bring yourself.
+                  Your hotel in Oskemen is taken care of for the whole celebration.
+                  Consider it a little thank-you for years of friendship.
                 </p>
               </motion.div>
 
@@ -179,7 +179,7 @@ const MaidOfHonour = () => {
                 animate={isMessageInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                All I'm asking for is you.
+                See you in Oskemen, love.
               </motion.p>
             </div>
           </motion.div>

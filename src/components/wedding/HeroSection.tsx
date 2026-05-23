@@ -1,9 +1,12 @@
 import { motion } from "framer-motion";
+import { useLanguage } from "@/hooks/use-language";
 import floralCorner from "@/assets/flower-laying-diagonal.png";
 import leftBottomHome from "@/assets/left-bottom-home.png";
 import rightBottomFlower from "@/assets/right-bottom-flower.png";
+import myPic from "@/assets/mypic.jpg";
 
 const HeroSection = () => {
+  const { t } = useLanguage();
   return (
     <section className="section-cream py-24 md:py-32 relative overflow-hidden flex items-center justify-center">
       {/* Decorative florals - top left */}
@@ -46,23 +49,31 @@ const HeroSection = () => {
       />
 
       {/* Main content */}
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 text-center px-4 flex flex-col items-center">
+        <motion.img
+          src={myPic}
+          alt="Ayazhan"
+          className="w-24 h-24 md:w-32 md:h-32 rounded-full object-cover shadow-md mb-6 border-2 border-cream"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.1 }}
+        />
         <motion.p
           className="font-body text-brown-light tracking-[0.3em] uppercase text-sm md:text-base mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          You're Invited to
+          {t("hero.youreInvited")}
         </motion.p>
 
         <motion.h1
-          className="font-script text-brown text-4xl md:text-6xl lg:text-7xl font-medium leading-tight"
+          className="font-script text-brown text-4xl md:text-6xl lg:text-7xl font-medium leading-tight whitespace-pre-line"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
         >
-          Ayazhan's Qyz Uzatu
+          {t("hero.title")}
         </motion.h1>
 
         <motion.div
@@ -78,7 +89,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          August 7, 2026
+          {t("hero.date")}
         </motion.p>
 
         <motion.p
@@ -87,7 +98,7 @@ const HeroSection = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
         >
-          Oskemen, Kazakhstan
+          {t("hero.location")}
         </motion.p>
 
         <motion.a
@@ -99,7 +110,7 @@ const HeroSection = () => {
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
-          View Details
+          {t("hero.cta")}
         </motion.a>
       </div>
 

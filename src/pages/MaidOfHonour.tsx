@@ -2,6 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Navigation from "@/components/wedding/Navigation";
 import FooterSection from "@/components/wedding/FooterSection";
+import { useLanguage } from "@/hooks/use-language";
 import floralCorner from "@/assets/flower-laying-diagonal.png";
 import leftBottomHome from "@/assets/left-bottom-home.png";
 import rightBottomFlower from "@/assets/right-bottom-flower.png";
@@ -10,6 +11,7 @@ import flowerDecor from "@/assets/flower-.png";
 const MaidOfHonour = () => {
   const messageRef = useRef(null);
   const isMessageInView = useInView(messageRef, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   return (
     <div className="min-h-screen">
@@ -57,7 +59,7 @@ const MaidOfHonour = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Dear Gulim
+            {t("moh.greeting")}
           </motion.p>
 
           <motion.h1
@@ -66,9 +68,9 @@ const MaidOfHonour = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.4 }}
           >
-            Will you be my
+            {t("moh.title.line1")}
             <br />
-            Maid of Honour?
+            {t("moh.title.line2")}
           </motion.h1>
 
           <motion.div
@@ -84,7 +86,7 @@ const MaidOfHonour = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.8 }}
           >
-            Ayazhan's Qyz Uzatu — August 7, 2026
+            {t("moh.event")}
           </motion.p>
         </div>
 
@@ -130,9 +132,7 @@ const MaidOfHonour = () => {
                 animate={isMessageInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                Through all the late-night talks, the silly laughter only we understand,
-                and the quiet moments that didn't need any words — you've been my person.
-                Thank you for always showing up, exactly as you are.
+                {t("moh.message1")}
               </motion.p>
 
               <motion.p
@@ -140,7 +140,7 @@ const MaidOfHonour = () => {
                 animate={isMessageInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                I can't imagine this day without you standing next to me.
+                {t("moh.message2")}
               </motion.p>
 
               <motion.div
@@ -150,11 +150,10 @@ const MaidOfHonour = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <h3 className="font-script text-brown text-2xl mb-4">
-                  Your Journey, Covered
+                  {t("moh.travel.title")}
                 </h3>
                 <p className="text-sm">
-                  Your round-trip flight from Astana to Oskemen and back is on me.
-                  Just pack your favourite outfit and leave the rest to me.
+                  {t("moh.travel.body")}
                 </p>
               </motion.div>
 
@@ -165,11 +164,10 @@ const MaidOfHonour = () => {
                 transition={{ duration: 0.8, delay: 0.5 }}
               >
                 <h3 className="font-script text-brown text-2xl mb-4">
-                  A Place to Rest
+                  {t("moh.hotel.title")}
                 </h3>
                 <p className="text-sm">
-                  Your hotel in Oskemen is taken care of for the whole celebration.
-                  Consider it a little thank-you for years of friendship.
+                  {t("moh.hotel.body")}
                 </p>
               </motion.div>
 
@@ -179,7 +177,7 @@ const MaidOfHonour = () => {
                 animate={isMessageInView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.6 }}
               >
-                See you in Oskemen, love.
+                {t("moh.closing")}
               </motion.p>
             </div>
           </motion.div>

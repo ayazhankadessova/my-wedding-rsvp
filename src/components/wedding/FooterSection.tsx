@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLanguage } from "@/hooks/use-language";
 import floralCorner from "@/assets/flower-laying-diagonal.png";
 import flowerDecor from "@/assets/right-bottom-flower.png";
 
 const FooterSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const { t } = useLanguage();
 
   return (
     <footer className="section-cream py-12 md:py-16 relative overflow-hidden">
@@ -36,7 +38,7 @@ const FooterSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-script text-brown text-5xl md:text-6xl lg:text-7xl mb-6">
-            We Can't Wait to See You!
+            {t("footer.title")}
           </h2>
         </motion.div>
         <motion.div
@@ -46,10 +48,10 @@ const FooterSection = () => {
           transition={{ duration: 0.8, delay: 0.5 }}
         >
           <p className="font-script text-brown text-3xl md:text-4xl mb-2">
-            Ayazhan & Shokan
+            {t("footer.names")}
           </p>
           <p className="font-body text-brown-light text-sm tracking-widest">
-            With love
+            {t("footer.withLove")}
           </p>
         </motion.div>
 

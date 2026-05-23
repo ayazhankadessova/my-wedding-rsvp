@@ -1,25 +1,24 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { useLanguage } from "@/hooks/use-language";
 import flowerDecor from "@/assets/flower-.png";
 
 const GOOGLE_SCRIPT_URL = import.meta.env.VITE_GOOGLE_SCRIPT_URL || "";
-const VITE_RSVP_CODE = import.meta.env.VITE_RSVP_CODE || "";
 
 const RSVPSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    phone: "",
     attending: "",
     guests: "1",
     message: "",
-    code: "",
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
-  const [codeError, setCodeError] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -29,13 +28,6 @@ const RSVPSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
-    setCodeError(false);
-
-    if (formData.code.toUpperCase() !== VITE_RSVP_CODE.toUpperCase()) {
-      setCodeError(true);
-      return;
-    }
 
     if (!GOOGLE_SCRIPT_URL) {
       setStatus("error");
@@ -55,7 +47,7 @@ const RSVPSection = () => {
         }),
       });
       setStatus("success");
-      setFormData({ name: "", email: "", attending: "", guests: "1", message: "", code: "" });
+      setFormData({ name: "", phone: "", attending: "", guests: "1", message: "" });
     } catch {
       setStatus("error");
     }
@@ -89,11 +81,11 @@ const RSVPSection = () => {
           transition={{ duration: 0.8 }}
         >
           <h2 className="font-script text-brown text-5xl md:text-6xl lg:text-7xl mb-4">
-            RSVP
+            {t("rsvp.title")}
           </h2>
           <div className="elegant-divider mb-6" />
           <p className="font-body text-brown-light text-sm tracking-wide">
-            We would be honored by your presence. Please let us know if your plans change.
+            {t("rsvp.subtitle")}
           </p>
         </motion.div>
 
@@ -111,10 +103,10 @@ const RSVPSection = () => {
               transition={{ duration: 0.5 }}
             >
               <h3 className="font-script text-brown text-3xl md:text-4xl mb-4">
-                Thank You!
+                {t("rsvp.thanks.title")}
               </h3>
               <p className="font-body text-brown-light text-sm">
-                We've received your RSVP. We can't wait to celebrate with you!
+                {t("rsvp.thanks.body")}
               </p>
             </motion.div>
           ) : (
@@ -125,7 +117,7 @@ const RSVPSection = () => {
                   htmlFor="rsvp-name"
                   className="block font-script text-brown text-lg mb-2"
                 >
-                  Your Name
+                  {t("rsvp.name")}
                 </label>
                 <input
                   id="rsvp-name"
@@ -134,27 +126,27 @@ const RSVPSection = () => {
                   required
                   value={formData.name}
                   onChange={handleChange}
-                  placeholder="Full name"
+                  placeholder={t("rsvp.name.placeholder")}
                   className="w-full px-4 py-3 bg-transparent border border-brown/20 font-body text-brown text-sm placeholder:text-brown-light/50 focus:outline-none focus:border-gold transition-colors"
                 />
               </div>
 
-              {/* Email */}
+              {/* Phone */}
               <div>
                 <label
-                  htmlFor="rsvp-email"
+                  htmlFor="rsvp-phone"
                   className="block font-script text-brown text-lg mb-2"
                 >
-                  Email
-                  <span className="font-body text-brown-light text-xs ml-2">(optional)</span>
+                  {t("rsvp.phone")}
+                  <span className="font-body text-brown-light text-xs ml-2">{t("rsvp.optional")}</span>
                 </label>
                 <input
-                  id="rsvp-email"
-                  name="email"
-                  type="email"
-                  value={formData.email}
+                  id="rsvp-phone"
+                  name="phone"
+                  type="tel"
+                  value={formData.phone}
                   onChange={handleChange}
-                  placeholder="your@email.com"
+                  placeholder={t("rsvp.phone.placeholder")}
                   className="w-full px-4 py-3 bg-transparent border border-brown/20 font-body text-brown text-sm placeholder:text-brown-light/50 focus:outline-none focus:border-gold transition-colors"
                 />
               </div>
@@ -162,7 +154,7 @@ const RSVPSection = () => {
               {/* Attending */}
               <div>
                 <label className="block font-script text-brown text-lg mb-3">
-                  Will you be attending?
+                  {t("rsvp.attending")}
                 </label>
                 <div className="flex gap-6">
                   <label className="flex items-center gap-2 cursor-pointer">
@@ -176,7 +168,7 @@ const RSVPSection = () => {
                       className="w-4 h-4 accent-[hsl(43,35%,55%)]"
                     />
                     <span className="font-body text-brown text-sm">
-                      Joyfully accepts
+                      {t("rsvp.attending.yes")}
                     </span>
                   </label>
                   <label className="flex items-center gap-2 cursor-pointer">
@@ -189,7 +181,7 @@ const RSVPSection = () => {
                       className="w-4 h-4 accent-[hsl(43,35%,55%)]"
                     />
                     <span className="font-body text-brown text-sm">
-                      Regretfully declines
+                      {t("rsvp.attending.no")}
                     </span>
                   </label>
                 </div>
@@ -206,7 +198,7 @@ const RSVPSection = () => {
                     htmlFor="rsvp-guests"
                     className="block font-script text-brown text-lg mb-2"
                   >
-                    Number of Guests
+                    {t("rsvp.guests")}
                   </label>
                   <select
                     id="rsvp-guests"
@@ -217,7 +209,7 @@ const RSVPSection = () => {
                   >
                     {[1, 2, 3, 4, 5].map((n) => (
                       <option key={n} value={n}>
-                        {n} {n === 1 ? "guest" : "guests"}
+                        {n} {n === 1 ? t("rsvp.guest.one") : t("rsvp.guest.many")}
                       </option>
                     ))}
                   </select>
@@ -230,8 +222,8 @@ const RSVPSection = () => {
                   htmlFor="rsvp-message"
                   className="block font-script text-brown text-lg mb-2"
                 >
-                  Message
-                  <span className="font-body text-brown-light text-xs ml-2">(optional)</span>
+                  {t("rsvp.message")}
+                  <span className="font-body text-brown-light text-xs ml-2">{t("rsvp.optional")}</span>
                 </label>
                 <textarea
                   id="rsvp-message"
@@ -239,46 +231,15 @@ const RSVPSection = () => {
                   rows={3}
                   value={formData.message}
                   onChange={handleChange}
-                  placeholder="Dietary restrictions, song requests, or a sweet note..."
+                  placeholder={t("rsvp.message.placeholder")}
                   className="w-full px-4 py-3 bg-transparent border border-brown/20 font-body text-brown text-sm placeholder:text-brown-light/50 focus:outline-none focus:border-gold transition-colors resize-none"
                 />
-              </div>
-
-              {/* Invitation Code */}
-              <div>
-                <label
-                  htmlFor="rsvp-code"
-                  className="block font-script text-brown text-lg mb-2"
-                >
-                  Invitation Code
-                </label>
-                <input
-                  id="rsvp-code"
-                  name="code"
-                  type="text"
-                  required
-                  value={formData.code}
-                  onChange={(e) => {
-                    setCodeError(false);
-                    handleChange(e);
-                  }}
-                  placeholder="Enter your 6-character code"
-                  className="w-full px-4 py-3 bg-transparent border border-brown/20 font-body text-brown text-sm placeholder:text-brown-light/50 focus:outline-none focus:border-gold transition-colors uppercase tracking-widest"
-                  maxLength={6}
-                />
-                {codeError && (
-                  <p className="font-body text-sm text-red-600 mt-2">
-                    Invalid invitation code. Please check and try again.
-                  </p>
-                )}
               </div>
 
               {/* Error message */}
               {status === "error" && (
                 <p className="font-body text-sm text-red-600 text-center">
-                  {GOOGLE_SCRIPT_URL
-                    ? "Something went wrong. Please try again."
-                    : "RSVP is not yet connected. Please contact us directly."}
+                  {GOOGLE_SCRIPT_URL ? t("rsvp.error.generic") : t("rsvp.error.notConnected")}
                 </p>
               )}
 
@@ -291,7 +252,7 @@ const RSVPSection = () => {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {status === "sending" ? "Sending..." : "Send RSVP"}
+                  {status === "sending" ? t("rsvp.sending") : t("rsvp.send")}
                 </motion.button>
               </div>
             </form>

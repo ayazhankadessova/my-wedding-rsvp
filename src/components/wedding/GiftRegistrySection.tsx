@@ -1,11 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLanguage } from "@/hooks/use-language";
 import floralCorner from "@/assets/flower-laying-diagonal.png";
 
 const GiftRegistrySection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   return (
     <section className="section-gold py-24 md:py-32 relative overflow-hidden">
@@ -35,7 +37,7 @@ const GiftRegistrySection = () => {
             transition={{ duration: 0.8 }}
           >
             <h2 className="font-script text-on-gold text-5xl md:text-6xl lg:text-7xl mb-4">
-              Gift Registry
+              {t("registry.title")}
             </h2>
             <div className="w-32 h-px mx-auto bg-gradient-to-r from-transparent via-cream to-transparent mb-10" />
           </motion.div>
@@ -47,14 +49,11 @@ const GiftRegistrySection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <p className="text-lg md:text-xl font-script text-on-gold leading-relaxed">
-              Your presence is truly the greatest gift we could ask for.
+              {t("registry.main")}
             </p>
 
             <p className="text-sm leading-relaxed">
-              However, if you wish to honor us with a gift, we've created a small registry
-              with some items we'd love for our new home together.
-
-              Alternatively, if you prefer to support us as we begin our married life, a contribution to our future would mean so much. 
+              {t("registry.detail")}
             </p>
 
             <motion.a
@@ -64,14 +63,14 @@ const GiftRegistrySection = () => {
               whileTap={{ scale: 0.98 }}
               onClick={(e) => {
                 e.preventDefault();
-                alert("Registry link will be added here!");
+                alert(t("registry.alert"));
               }}
             >
-              View Our Registry
+              {t("registry.cta")}
             </motion.a>
 
             <p className="text-xs text-on-gold/60 mt-6 italic">
-              The registry link will be added soon
+              {t("registry.note")}
             </p>
           </motion.div>
         </div>

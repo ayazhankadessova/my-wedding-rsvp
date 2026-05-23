@@ -6,8 +6,12 @@ import GiftRegistrySection from "@/components/wedding/GiftRegistrySection";
 import RSVPSection from "@/components/wedding/RSVPSection";
 import FAQSection from "@/components/wedding/FAQSection";
 import FooterSection from "@/components/wedding/FooterSection";
+import { useLanguage } from "@/hooks/use-language";
 
 const Index = () => {
+  const { language } = useLanguage();
+  const showExtras = language === "en";
+
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -15,12 +19,16 @@ const Index = () => {
       <section id="schedule">
         <ScheduleSection />
       </section>
-      <section id="accommodation">
-        <AccommodationSection />
-      </section>
-      <section id="registry">
-        <GiftRegistrySection />
-      </section>
+      {showExtras && (
+        <section id="accommodation">
+          <AccommodationSection />
+        </section>
+      )}
+      {showExtras && (
+        <section id="registry">
+          <GiftRegistrySection />
+        </section>
+      )}
       <section id="rsvp">
         <RSVPSection />
       </section>

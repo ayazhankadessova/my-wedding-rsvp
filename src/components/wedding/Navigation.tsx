@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLanguage } from "@/hooks/use-language";
+import { LANGUAGES, Language } from "@/lib/i18n";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -13,13 +16,42 @@ const Navigation = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const showExtras = language === "en";
   const navLinks = [
-    { label: "Schedule", href: "/#schedule" },
-    { label: "Stay", href: "/#accommodation" },
-    { label: "Registry", href: "/#registry" },
-    { label: "RSVP", href: "/#rsvp" },
-    { label: "FAQ", href: "/#details" },
+    { label: t("nav.schedule"), href: "/#schedule" },
+    ...(showExtras
+      ? [
+          { label: t("nav.stay"), href: "/#accommodation" },
+          { label: t("nav.registry"), href: "/#registry" },
+        ]
+      : []),
+    { label: t("nav.rsvp"), href: "/#rsvp" },
+    { label: t("nav.faq"), href: "/#details" },
   ];
+
+  const LanguageToggle = ({ className = "" }: { className?: string }) => (
+    <div className={`flex items-center gap-1 ${className}`}>
+      {LANGUAGES.map((lang, i) => (
+        <div key={lang.code} className="flex items-center gap-1">
+          <button
+            onClick={() => setLanguage(lang.code as Language)}
+            className={`font-body text-xs tracking-wider transition-colors duration-300 ${
+              language === lang.code
+                ? "text-gold font-semibold"
+                : "text-brown-light hover:text-gold"
+            }`}
+            aria-label={`Switch language to ${lang.label}`}
+            aria-pressed={language === lang.code}
+          >
+            {lang.label}
+          </button>
+          {i < LANGUAGES.length - 1 && (
+            <span className="text-brown-light/40 text-xs">|</span>
+          )}
+        </div>
+      ))}
+    </div>
+  );
 
   return (
     <>
@@ -51,32 +83,36 @@ const Navigation = () => {
                   {link.label}
                 </a>
               ))}
+              <LanguageToggle className="ml-2 pl-4 border-l border-brown-light/20" />
             </div>
 
-            {/* Mobile menu button */}
-            <button
-              className="md:hidden text-brown p-2"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              aria-label="Toggle menu"
-            >
-              <div className="w-6 flex flex-col gap-1.5">
-                <span
-                  className={`block h-0.5 bg-brown transition-all duration-300 ${
-                    isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-                  }`}
-                />
-                <span
-                  className={`block h-0.5 bg-brown transition-all duration-300 ${
-                    isMobileMenuOpen ? "opacity-0" : ""
-                  }`}
-                />
-                <span
-                  className={`block h-0.5 bg-brown transition-all duration-300 ${
-                    isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                  }`}
-                />
-              </div>
-            </button>
+            {/* Mobile right side: language toggle + menu button */}
+            <div className="md:hidden flex items-center gap-4">
+              <LanguageToggle />
+              <button
+                className="text-brown p-2"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                <div className="w-6 flex flex-col gap-1.5">
+                  <span
+                    className={`block h-0.5 bg-brown transition-all duration-300 ${
+                      isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
+                    }`}
+                  />
+                  <span
+                    className={`block h-0.5 bg-brown transition-all duration-300 ${
+                      isMobileMenuOpen ? "opacity-0" : ""
+                    }`}
+                  />
+                  <span
+                    className={`block h-0.5 bg-brown transition-all duration-300 ${
+                      isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
+                    }`}
+                  />
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </motion.nav>

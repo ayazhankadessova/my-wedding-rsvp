@@ -1,18 +1,19 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
+import { useLanguage } from "@/hooks/use-language";
 import couplePhoto from "@/assets/faq-1.png";
 
 const ScheduleSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const { t } = useLanguage();
 
   const events = [
-    { time: "16:00", event: "Arrival & Welcome" },
-    { time: "16:00", event: "Ceremony" },
-    { time: "18:30", event: "Dinner" },
-    { time: "20:00", event: "Celebration" },
-    { time: "23:00", event: "End" },
+    { time: "17:00", event: t("schedule.event.arrival") },
+    { time: "18:00", event: t("schedule.event.ceremony") },
+    { time: "21:00", event: t("schedule.event.part2") },
+    { time: "23:00", event: t("schedule.event.end") },
   ];
 
   return (
@@ -43,10 +44,10 @@ const ScheduleSection = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="font-script text-on-gold text-5xl md:text-6xl lg:text-7xl mb-2">
-              Schedule of Events
+              {t("schedule.title")}
             </h2>
             <p className="font-body text-on-gold/80 tracking-widest uppercase text-sm mb-10">
-              The Day's Timeline
+              {t("schedule.subtitle")}
             </p>
 
             <div className="space-y-6">
